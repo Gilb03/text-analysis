@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<style>
+#hr {
+    color:black;
+
+
+}
+</style>
+</head>
+<h1>On your own</h1>
+<Body>
+
+<b>1. Define the term "tokenize"</b>
+<p>Tokenize is the process of turning text into tokens. In otherwords- splitting strings for more granular analysis.
+</p>
+
+ <p>
+<b>2.  What percentage of words are negative in the bing lexicon?</b>
+<p>
+```{r}
+bing_data %>%
+  group_by(sentiment) %>%
+  summarise(n=n()) %>%
+  mutate(percent = n/sum(n)) %>%
+  arrange(n)
+```
+Roughly 70% of the words in the bing lexicon are negative. 
+</p>
+
+ <p>
+ <b>3. What percentage of words are positive in the nrc lexicon?</b>
+<p>```{r sentiment-types-nrc}
+ nrc_data %>%
+  group_by(sentiment) %>%
+  summarise(n=n()) %>%
+  mutate(percent = n/sum(n)) %>%
+  arrange(n)
+```
+ About 17% of the words in the nrc lexicon are positive. 
+ 
+</p>
+<p>
+<b>4. Execute the following code and answer the following questions:</b>
+ <p>
+```{r sentiment-types-nrc}
+nrc_data %>%
+  group_by(sentiment) %>%
+  summarise(n=n()) %>%
+  mutate(percent = n/sum(n)) %>%
+  arrange(n)
+
+```
+</p>
+
+<p>
+<b>5. How many types of sentiment are labelled in the nrc lexicon?</b>
+ <p>There are approximately 10 sentiment types.</p> 
+</p>
+<p>
+<b>
+6. Which sentiment represents ~7.6% of the words in the nrc lexicon?
+</b>
+<p>The word `disgust` represents roughly 7.6% of the words in the nrc lexicon.</p>
+
+</p>
+</Body>
+  </html>
